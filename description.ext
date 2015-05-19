@@ -1,0 +1,187 @@
+// ====================================================================================
+
+// ShackTac spectator script?
+/*
+// Control types
+#define CT_STATIC	0
+#define CT_STRUCTURED_TEXT 13
+
+// Static styles
+#define ST_LEFT	0
+#define ST_RIGHT	1
+#define ST_CENTER	2
+#define ST_UP		3
+#define ST_DOWN	4
+#define ST_VCENTER	5
+
+#define ST_SINGLE	0
+#define ST_MULTI	16
+#define ST_PICTURE	48
+#define ST_FRAME	64
+
+#define ST_HUD_BACKGROUND 128
+#define ST_TILE_PICTURE 144
+#define ST_WITH_RECT 160
+#define ST_LINE	176
+
+#define ST_SHADOW	256
+#define ST_NO_RECT	512
+
+#define FontM "EtelkaNarrowMediumPro"
+#define ST_LEFT      0
+#define ST_RIGHT     1
+#define ST_CENTER    2
+#define CT_STATIC    0
+*/
+
+// ============================================================================================
+
+// F3 - Mission Header
+// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
+
+class Header
+{
+	gameType = Coop;
+	minPlayers = 1;
+	maxPlayers = 457;
+};
+
+// ============================================================================================
+
+// F3 - Loading Screen
+// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
+
+onLoadName = "*** Insert mission name here. ***";
+onLoadMission = "Made with the F3 Mission Development Framework";
+author = "*** Insert mission author name here. ***";
+loadScreen = "loading.paa";
+overviewPicture = "loading.paa";
+
+// ============================================================================================
+
+// F3 - Respawn Settings
+// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
+
+respawn = "GROUP";
+//respawn = "BASE";
+respawndelay = 3;
+//respawnDelay = 1e10;
+respawnVehicleDelay = 60;
+respawnDialog = 0;
+respawnOnStart = 0;
+//respawnTemplates[] = {"Spectator_Respawn"};
+
+// ============================================================================================
+
+// F3 - Briefing Template
+// Credits: BIS - Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
+
+class CfgDebriefing
+{
+	class End1
+	{
+		title = "Ending #1";
+		subtitle = "";
+		description = "*** Insert debriefing #1 here. ***";
+		pictureBackground = "loading.paa";
+		picture = "icon.paa";
+		// pictureColor[] = {0.0,0.3,0.6,1};
+	};
+
+	class End2
+	{
+		title = "Ending #2";
+		subtitle = "";
+		description = "*** Insert debriefing #2 here. ***";
+		pictureBackground = "loading.paa";
+		picture = "icon.paa";
+		// pictureColor[] = {0.0,0.3,0.6,1};
+	};
+/*
+	class End3
+	{
+		title = "Ending #3";
+		subtitle = "";
+		description = "*** Insert debriefing #3 here. ***";
+		// pictureBackground = "";
+		// picture = "";
+		// pictureColor[] = {0.0,0.3,0.6,1};
+	};
+
+	class End4
+	{
+		title = "Ending #4";
+		subtitle = "";
+		description = "*** Insert debriefing #4 here. ***";
+		// pictureBackground = "";
+		// picture = "";
+		// pictureColor[] = {0.0,0.3,0.6,1};
+	};
+
+	class End5
+	{
+		title = "Ending #5";
+		subtitle = "";
+		description = "*** Insert debriefing #5 here. ***";
+		// pictureBackground = "";
+		// picture = "";
+		// pictureColor[] = {0.0,0.3,0.6,1};
+	};
+
+	class End6
+	{
+		title = "Ending #6";
+		subtitle = "";
+		description = "*** Insert debriefing #6 here. ***";
+		// pictureBackground = "";
+		// picture = "";
+		// pictureColor[] = {0.0,0.3,0.6,1};
+	};
+*/
+	class Loser
+	{
+		title = "Fission Mailed";
+		subtitle = "Once again the punching bag...";
+		description = "no... NO.. NO!!! NO! NO NO NO!!";
+		pictureBackground = "loading.paa";
+		picture = "KIA";
+		pictureColor[] = {0.6,0.1,0.,1};
+	};
+
+
+};
+
+// ============================================================================================
+
+class CfgRespawnTemplates
+{
+	class Spectator_Respawn
+	{
+		displayName = "ST Spectator w/ Respawn";
+		onPlayerRespawn = "scripts\respawn.sqf";
+		onPlayerKilled = "scripts\startspect.sqf";
+	};
+};
+
+// ============================================================================================
+
+class CfgFunctions {
+	class F // Defines the "owner"
+	{
+		class assignGear
+		{
+			// Defines the functions to preInit the compling of the assignGear function used by units.
+			file = "f\assignGear";
+			class assignGear{};
+		};
+	};
+	class BG
+	{
+		class common
+		{
+		//	class HandlemoduleSector {file = "scripts\fn_objective_handler.sqf";};
+		};
+	};
+};
+
+// ============================================================================================
