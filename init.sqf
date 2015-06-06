@@ -85,9 +85,4 @@ if(isServer) then {
 
 [] execVM "f\radios\radio_init.sqf";
 
-// Parameters:
-// * babel (bool) – True/False setting to specify whether each side should speak their own Babel language; making them incomprehensible to eachother.
-// * radios (bool) – True/False to specify whether default radio channels should be setup differently for each side in the game.
-[true, true] call acre_api_fnc_setupMission;
-
 // ====================================================================================
